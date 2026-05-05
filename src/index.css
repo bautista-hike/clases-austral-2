@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-deep-space: #00001F;
+  --color-spark-yellow: #F4EB33;
+  --color-lilac: #AF8AE7;
+  
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  
+  --glass-bg: rgba(252, 249, 247, 0.1);
+  --glass-border: rgba(244, 235, 249, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-deep-space text-white font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-[0.05em] uppercase;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[var(--glass-bg)] backdrop-blur-[15px] border border-[var(--glass-border)] rounded-2xl;
+  }
+  
+  .btn-primary {
+    @apply bg-spark-yellow text-black font-semibold px-6 py-3 rounded-lg transition-all hover:opacity-90 active:scale-95 text-sm;
+  }
+  
+  .btn-outline {
+    @apply border border-spark-yellow text-spark-yellow font-medium px-4 py-2 rounded-full transition-all hover:bg-spark-yellow hover:text-black text-xs uppercase tracking-widest;
+  }
+  
+  .text-lilac {
+    @apply text-lilac;
+  }
+}
+
+/* Custom scrollbar for better aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #00001F;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(175, 138, 231, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(175, 138, 231, 0.5);
+}
